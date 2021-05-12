@@ -1,19 +1,55 @@
-<html>
 
-  <title>First website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><center><br>
+<div class='btns-container'>
+<b>ZERODHA USERS:</b>
+<br><br>
+		<div class='branded-btn'> <upstox-tradebutton button-name="three" TRADE></upstox-tradebutton> <!-- <span>See code ></span> --> </div>
+    </div>
 
-   <body>
+<!-- The basket will be linked to this element's onClick //-->
+<button id="custom-button">Buy Option</button>
 
-    <h1>This is my first github page</h1>
+<!-- Include the plugin //-->
+<script src="https://kite.trade/publisher.js?v=3"></script>
 
-  </body>
+<script>
+// Only run your custom code once KiteConnect has fully initialised.
+// Use KiteConnect.ready() to achieve this.
+KiteConnect.ready(function() {
+    // Initialize a new Kite instance.
+    // You can initialize multiple instances if you need.
+    var kite = new KiteConnect("7qokmn33puoesfm4");
 
-      <style>
-            body {
-              background-color:green;
-              color:#fff;
-              text-align:center;
-            }
-      </style>
+    // Add a stock to the basket
+    kite.add({
+        "exchange": "NFO",
+        "tradingsymbol": "BANKNIFTY21MAY31000PE",
+        "quantity": 25,
+		"order_type": "SL-M",
+        "transaction_type": "BUY",
+		"trigger_price": 600,
+        "product": "MIS"
+    });
 
-</html>
+    kite.add({
+        "exchange": "NFO",
+        "tradingsymbol": "BANKNIFTY21MAY31000CE",
+        "quantity": 25,
+		"order_type": "SL-M",
+        "transaction_type": "BUY",
+		"trigger_price": 600,
+        "product": "MIS"
+    });
+
+    // Register an (optional) callback.
+    kite.finished(function(status, request_token) {
+        alert("Finished. Status is " + status);
+    });
+
+    // Render the in-built button inside a given target
+    kite.renderButton("#default-button");
+
+    // OR, link the basket to any existing element you want
+    kite.link("#custom-button");
+});
+</script>
