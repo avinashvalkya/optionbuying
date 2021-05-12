@@ -23,23 +23,23 @@ KiteConnect.ready(function() {
     // Add a stock to the basket
     kite.add({
         "exchange": "NFO",
-        "tradingsymbol": "BANKNIFTY21MAY31000PE",
-        "quantity": 25,
+        "tradingsymbol": "NIFTY2151214800PE",
+        "quantity": 75,
 		"order_type": "SL-M",
         "transaction_type": "BUY",
-		"trigger_price": 600,
+		"trigger_price": 81.95,
         "product": "MIS"
     });
 
-    kite.add({
-        "exchange": "NFO",
-        "tradingsymbol": "BANKNIFTY21MAY31000CE",
-        "quantity": 25,
-		"order_type": "SL-M",
-        "transaction_type": "BUY",
-		"trigger_price": 600,
-        "product": "MIS"
-    });
+    <!-- kite.add({ -->
+        <!-- "exchange": "NFO", -->
+        <!-- "tradingsymbol": "BANKNIFTY21MAY31000CE", -->
+        <!-- "quantity": 25, -->
+		<!-- "order_type": "SL-M", -->
+        <!-- "transaction_type": "BUY", -->
+		<!-- "trigger_price": 600, -->
+        <!-- "product": "MIS" -->
+    <!-- }); -->
 
     // Register an (optional) callback.
     kite.finished(function(status, request_token) {
